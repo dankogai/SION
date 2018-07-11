@@ -1,37 +1,46 @@
-## Welcome to GitHub Pages
+## Because JSON is not expressive enough
 
-You can use the [editor on GitHub](https://github.com/dankogai/SION/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+SION is a data serialization format:
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+* Named after "Swift Interchangeable Object Notation"
+  * but like [JSON], it is not an acronym.  It is a textual data format of its own and not strictly tied to [Swift].
+* As JSON is originated from a {ECMA,Java}Script literal, SION is originated from a Swift literal.
+* It can serialize anything JSON can. Plus
+  * support `Data` - binary blobs
+  * support `Date`
+* non-`String` keys in `Dictionary`
+  * `Int` and `Double` distinctively, not `Number`.  
+    * Therefore you can exchange 64-bit integers losslessly.
+* // comment is allowed!.  `//` up to newline.
+* `Double` includes `NaN` and ±`Infinity`.
+* Roughly equvalent to [MsgPack] in terms of capability.
+  * [MsgPack] is a binary serialization while `SION` is a text serialization.
 
-### Markdown
+[JSON]: https://json.org
+[Swift]: https://swift.org
+[MsgPack]: https://msgpack.org
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Below is a table of a few notable serialization formats and capabilities.
 
-```markdown
-Syntax highlighted code block
+| Type | SION | MsgPack | JSON | Property List | Comment |
+|--------|---------------|-------|---|---|---|
+| `Nil`           | ✔︎ | ✔︎ | ✔︎ | ❌ | plist: .binary only |
+| `Bool`          | ✔︎ | ✔︎ | ✔︎ | ✔︎ |
+| `Int`           | ✔︎ | ✔︎ | ❌ | ✔︎ | 64bit |
+| `Double`        | ✔︎ | ✔︎ | ✔︎ | ✔︎ | JSON's Number |
+| `String`        | ✔︎ | ✔︎ | ✔︎ | ✔︎ | utf-8 encoded |
+| `Data`          | ✔︎ | ✔︎ | ❌ | ✔︎ | binary blob |
+| `Date`          | ✔︎ | ✔︎ | ❌ | ✔︎ | .timeIntervalSince1970 in `Double` |
+| `[Self]`        | ✔︎ | ✔︎ | ✔︎ | ✔︎ | aka Array |
+| `[String:Self]` | ✔︎ | ✔︎ | ✔︎ | ✔︎ | aka Object, Map…|
+| `[Self:Self]`   | ✔︎ | ✔︎ | ❌ | ❌ |non-`String` keys|
 
-# Header 1
-## Header 2
-### Header 3
+## Implementations
 
-- Bulleted
-- List
+* Swift
+  * [swift-sion]
+* ECMAScript (aka JavaScript)
+  * [js-sion]
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/dankogai/SION/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+[swift-sion]: https://github.com/dankogai/swift-jsion
+[js-sion]: https://github.com/dankogai/swift-jsion
