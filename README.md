@@ -45,8 +45,8 @@ Below is a table of a few notable serialization formats and capabilities.
 * ECMAScript (aka JavaScript)
   * [js-sion]
 
-[swift-sion]: https://github.com/dankogai/swift-jsion
-[js-sion]: https://github.com/dankogai/swift-jsion
+[swift-sion]: https://github.com/dankogai/swift-sion
+[js-sion]: https://github.com/dankogai/swift-sion
 
 ## Examples
 
