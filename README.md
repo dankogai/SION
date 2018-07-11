@@ -2,23 +2,26 @@
 
 SION is a data serialization format:
 
-* Named after "Swift Interchangeable Object Notation"
-  * but like [JSON], it is not an acronym.  It is a textual data format of its own and not strictly tied to [Swift].
-* As JSON is originated from a {ECMA,Java}Script literal, SION is originated from a Swift literal.
+* Named after "Swift Interchangeable Object Notation". As JSON is originated from a {ECMA,Java}Script literal, SION is originated from a [Swift[ literal.
+  * but like [JSON], it should not be considered acronym.  It is a textual data format of its own and independent of programming languages.
 * It can serialize anything JSON can. Plus
   * support `Data` - binary blobs
   * support `Date`
 * non-`String` keys in `Dictionary`
   * `Int` and `Double` distinctively, not `Number`.  
     * Therefore you can exchange 64-bit integers losslessly.
+* `Double` can be expressed both in decimal and [C99 Hexadecimal floating-point] notation.
+* `NaN` and ±`Infinity` are valid.
+  * This is necessary for really interchangeable format.  Suppose you want to send calculation results with errors.
 * // comment is allowed!.  `//` up to newline.
-* `Double` includes `NaN` and ±`Infinity`.
+  * The lack of comment support of JSON definitely make it suck as a configuration file format.
 * Roughly equvalent to [MsgPack] in terms of capability.
   * [MsgPack] is a binary serialization while `SION` is a text serialization.
 
 [JSON]: https://json.org
 [Swift]: https://swift.org
 [MsgPack]: https://msgpack.org
+[C99 Hexadecimal floating-point]: https://en.wikipedia.org/wiki/C99#IEEE_754_floating_point_support
 
 Below is a table of a few notable serialization formats and capabilities.
 
