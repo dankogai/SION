@@ -44,3 +44,111 @@ Below is a table of a few notable serialization formats and capabilities.
 
 [swift-sion]: https://github.com/dankogai/swift-jsion
 [js-sion]: https://github.com/dankogai/swift-jsion
+
+## Examples
+
+Below is an exmaple of data encoded in SION.
+
+```swift
+[
+    "array" : [
+        nil,
+        true,
+        1,    // Int in decimal
+        1.0,  // Double in decimal
+        "one",
+        [1],
+        ["one" : 1.0]
+    ],
+    "bool" : true,
+    "data" : .Data("R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"),
+    "date" : .Date(0x0p+0),
+    "dictionary" : [
+        "array" : [],
+        "bool" : false,
+        "double" : 0x0p+0,
+        "int" : 0,
+        "nil" : nil,
+        "object" : [:],
+        "string" : ""
+    ],
+    "double" : 0x1.518f5c28f5c29p+5, // Double in hexadecimal
+    "int" : -0x2a, // Int in hexadecimal
+    "nil" : nil,
+    "string" : "漢字、カタカナ、ひらがなの入ったstring😇",
+    "url" : "https://github.com/dankogai/",
+    nil   : "Unlike JSON and Property Lists,",
+    true  : "Yes, SION",
+    1     : "does accept",
+    1.0   : "non-String keys.",
+    []    : "like",
+    [:]   : "Map of ECMAScript."
+]
+```
+
+As you notice,
+
+* comments are allowed - `//` up to newline.
+* non-`String` keys are allowed.  Any data conforming to SION can be a {Dictionary,Map,Object} key.
+
+And below is an example of JSON-compatible SION…
+
+```swift
+[
+    "array" : [
+        nil,
+        true,
+        1,
+        1.0,
+        "one",
+        [1],
+        ["one" : 1.0]
+    ],
+    "bool" : true,
+    "dictionary" : [
+        "array" : [],
+        "bool" : false,
+        "double" : 0.0,
+        "int" : 0,
+        "nil" : nil,
+        "object" : [:],
+        "string" : ""
+    ],
+    "double" : 42.195,
+    "int" : -42,
+    "nil" : nil,
+    "string" : "漢字、カタカナ、ひらがなの入ったstring😇",
+    "url" : "https://github.com/dankogai/"
+]
+```
+
+…which turns into a JSON blow.
+
+```javascript
+{
+    "array" : [
+        nil,
+        true,
+        1,    // Int in decimal
+        1.0,  // Double in decimal
+        "one",
+        [1],
+        {"one": 1.0}
+    ],
+    "bool" : true,
+    "dictionary": [
+        "array": [],
+        "bool": false,
+        "double": 0.0,
+        "int": 0,
+        "nil": null,
+        "object": {},
+        "string": ""
+    ],
+    "double": 42.195,
+    "int": -42,
+    "nil": nil,
+    "string": "漢字、カタカナ、ひらがなの入ったstring😇",
+    "url": "https://github.com/dankogai/"
+}
+```
