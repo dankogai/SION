@@ -1,3 +1,7 @@
+# SION, a serialization format a little more expressive than JSON
+
+This page introduces and describes SION, a data serialization format that addresses the shortcomings of [JSON], arguably the most popular data serialization format today. 
+
 ## Because JSON is not expressive enough
 
 SION is a data serialization format:
@@ -41,12 +45,14 @@ Below is a table of a few notable serialization formats and capabilities.
 ## Implementations
 
 * Swift
-  * [swift-sion]
+  * [swift-sion] by [dankogai]
 * Go
-  * [go-sion]
+  * [go-sion] by [mattn]
 * ECMAScript (aka JavaScript)
-  * [js-sion]
+  * [js-sion] by [dankogai]
 
+[dankogai]: https://github.com/dankogai/
+[mattn]: https://github.com/mattn/
 [swift-sion]: https://github.com/dankogai/swift-sion
 [go-sion]: https://github.com/mattn/go-sion
 [js-sion]: https://github.com/dankogai/swift-sion
