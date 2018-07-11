@@ -55,7 +55,7 @@ Below is a table of a few notable serialization formats and capabilities.
 [mattn]: https://github.com/mattn/
 [swift-sion]: https://github.com/dankogai/swift-sion
 [go-sion]: https://github.com/mattn/go-sion
-[js-sion]: https://github.com/dankogai/swift-sion
+[js-sion]: https://github.com/dankogai/js-sion
 
 ## Examples
 
