@@ -42,10 +42,13 @@ Below is a table of a few notable serialization formats and capabilities.
 
 * Swift
   * [swift-sion]
+* Go
+  * [go-sion]
 * ECMAScript (aka JavaScript)
   * [js-sion]
 
 [swift-sion]: https://github.com/dankogai/swift-sion
+[go-sion]: https://github.com/mattn/go-sion
 [js-sion]: https://github.com/dankogai/swift-sion
 
 ## Examples
