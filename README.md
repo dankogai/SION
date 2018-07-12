@@ -110,8 +110,8 @@ And below is an example of JSON-compatible SION…
     "array" : [
         nil,
         true,
-        1,
-        1.0,
+        1,    // Int in decimal
+        1.0,  // Double in decimal
         "one",
         [1],
         ["one" : 1.0]
@@ -141,8 +141,8 @@ And below is an example of JSON-compatible SION…
     "array" : [
         nil,
         true,
-        1,    // Int in decimal
-        1.0,  // Double in decimal
+        1,
+        1.0,
         "one",
         [1],
         {"one": 1.0}
