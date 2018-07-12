@@ -19,7 +19,7 @@ SION is a data serialization format:
   * This is necessary for really interchangeable format.  Suppose you want to send calculation results with errors.
 * // comment is allowed!.  `//` up to newline.
   * The lack of comment support of JSON definitely make it suck as a configuration file format.
-* Roughly equvalent to [MsgPack] in terms of capability.
+* Roughly equivalent to [MsgPack] in terms of capability.
   * [MsgPack] is a binary serialization while `SION` is a text serialization.
 
 [JSON]: https://json.org
