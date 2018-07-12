@@ -134,7 +134,7 @@ And below is an example of JSON-compatible SION…
 ]
 ```
 
-…which turns into a JSON blow.
+…which turns into a JSON below.
 
 ```javascript
 {
