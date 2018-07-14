@@ -51,12 +51,16 @@ Below is a table of a few notable serialization formats and capabilities.
   * [go-sion] by [mattn]
 * ECMAScript (aka JavaScript)
   * [js-sion] by [dankogai]
+* Rust
+  * [sion-rs] by [pandaman64]
 
 [dankogai]: https://github.com/dankogai/
 [mattn]: https://github.com/mattn/
+[pandaman64]: https://github.com/pandaman64/
 [swift-sion]: https://github.com/dankogai/swift-sion
 [go-sion]: https://github.com/mattn/go-sion
 [js-sion]: https://github.com/dankogai/js-sion
+[sion-rs]: https://github.com/pandaman64/sion-rs
 
 ## Examples
 
