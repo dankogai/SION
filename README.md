@@ -53,14 +53,18 @@ Below is a table of a few notable serialization formats and capabilities.
   * [js-sion] by [dankogai]
 * Rust
   * [sion-rs] by [pandaman64]
+* Python 3
+  * [py-sion] by [kamimura]
 
 [dankogai]: https://github.com/dankogai/
 [mattn]: https://github.com/mattn/
 [pandaman64]: https://github.com/pandaman64/
+[kamimura]: https://github.com/kamimura/
 [swift-sion]: https://github.com/dankogai/swift-sion
 [go-sion]: https://github.com/mattn/go-sion
 [js-sion]: https://github.com/dankogai/js-sion
 [sion-rs]: https://github.com/pandaman64/sion-rs
+[py-sion]: https://github.com/kamimura/py-sion
 
 ## Examples
 
