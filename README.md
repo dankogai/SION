@@ -6,7 +6,7 @@ This page introduces and describes SION, a data serialization format that addres
 
 SION is a data serialization format:
 
-* Named after "Swift Interchangeable Object Notation". As JSON is originated from a {ECMA,Java}Script literal, SION is originated from a [Swift[ literal.
+* Named after "Swift Interchangeable Object Notation". As JSON is originated from a {ECMA,Java}Script literal, SION is originated from a [Swift] literal.
   * but like [JSON], it should not be considered acronym.  It is a textual data format of its own and independent of programming languages.
 * It can serialize anything JSON can. Plus
   * support `Data` - binary blobs
@@ -65,6 +65,13 @@ Below is a table of a few notable serialization formats and capabilities.
 [js-sion]: https://github.com/dankogai/js-sion
 [sion-rs]: https://github.com/pandaman64/sion-rs
 [py-sion]: https://github.com/kamimura/py-sion
+
+## Syntax
+
+* ANTLR4(EBNF)
+  * [sion-antlr4] by [kamimura]
+
+[sion-antlr4]: https://github.com/kamimura/sion-antlr4
 
 ## Examples
 
