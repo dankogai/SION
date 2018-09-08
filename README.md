@@ -159,7 +159,7 @@ And below is an example of JSON-compatible SION…
         {"one": 1.0}
     ],
     "bool" : true,
-    "dictionary": [
+    "dictionary": {
         "array": [],
         "bool": false,
         "double": 0.0,
@@ -167,7 +167,7 @@ And below is an example of JSON-compatible SION…
         "nil": null,
         "object": {},
         "string": ""
-    ],
+    },
     "double": 42.195,
     "int": -42,
     "nil": nil,
