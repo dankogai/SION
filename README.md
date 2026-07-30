@@ -55,6 +55,8 @@ Below is a table of a few notable serialization formats and capabilities.
   * [sion-rs] by [pandaman64]
 * Python 3
   * [py-sion] by [kamimura]
+* Perl 5
+  * [p5-sion] by [dankogai]
 
 [dankogai]: https://github.com/dankogai/
 [mattn]: https://github.com/mattn/
@@ -65,6 +67,7 @@ Below is a table of a few notable serialization formats and capabilities.
 [js-sion]: https://github.com/dankogai/js-sion
 [sion-rs]: https://github.com/pandaman64/sion-rs
 [py-sion]: https://github.com/kamimura/py-sion
+[p5-sion]: https://github.com/dankogai/p5-sion
 
 ## Syntax
 
