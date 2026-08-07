@@ -78,6 +78,8 @@ The only price is `[:]`, the empty `Dictionary`, since `[]` is taken by the empt
   * [py-sion] by [kamimura]
 * Perl 5
   * [p5-sion] by [dankogai]
+* Raku
+  * [raku-sion] by [dankogai]
 
 [dankogai]: https://github.com/dankogai/
 [mattn]: https://github.com/mattn/
@@ -89,6 +91,7 @@ The only price is `[:]`, the empty `Dictionary`, since `[]` is taken by the empt
 [sion-rs]: https://github.com/pandaman64/sion-rs
 [py-sion]: https://github.com/kamimura/py-sion
 [p5-sion]: https://github.com/dankogai/p5-sion
+[raku-sion]: https://github.com/dankogai/raku-sion
 
 ## Syntax
 
