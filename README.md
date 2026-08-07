@@ -14,11 +14,13 @@ SION is a data serialization format:
 * non-`String` keys in `Dictionary`
   * `Int` and `Double` distinctively, not `Number`.  
     * Therefore you can exchange 64-bit integers losslessly.
+* No `{}` needed for `Dictionary` (aka Map, Hash, Object…).
+  * `[` and `]` delimit both `Array` and `Dictionary`.  What makes a `Dictionary` a `Dictionary` is `:` between keys and values, not a different pair of brackets.
 * `Double` can be expressed both in decimal and [C99 Hexadecimal floating-point] notation.
 * `NaN` and ±`Infinity` are valid.
   * This is necessary for really interchangeable format.  Suppose you want to send calculation results with errors.
 * // comment is allowed!.  `//` up to newline.
-  * The lack of comment support of JSON definitely make it suck as a configuration file format.
+  * The lack of comment support of JSON definitely makes it suck as a configuration file format.
 * Roughly equivalent to [MsgPack] in terms of capability.
   * [MsgPack] is a binary serialization while `SION` is a text serialization.
 
@@ -42,6 +44,25 @@ Below is a table of a few notable serialization formats and capabilities.
 | `[String:Self]` | ✔︎ | ✔︎ | ✔︎ | ✔︎ | aka Object, Map…|
 | `[Self:Self]`   | ✔︎ | ✔︎ | ❌ | ❌ |non-`String` keys|
 | `Ext`           | ✔︎ | ✔︎ | ❌ | ❌ |msgpack extension|
+
+## One bracket to rule them all
+
+Unlike JSON, SION needs no `{}` for `Dictionary` (aka Map, Hash, Object…).  Both `Array` and `Dictionary` are delimited by `[` and `]`.  They are distinguished not by brackets but by what is inside — `key : value` pairs make it a `Dictionary`:
+
+```swift
+[ "zero", "one", "two" ]        // an Array
+[ 0:"zero", 1:"one", 2:"two" ]  // a Dictionary
+[]                              // an empty Array
+[:]                             // an empty Dictionary
+```
+
+This is not just aesthetics:
+
+* **Simpler syntax**.  One kind of bracket for collections means fewer tokens, fewer delimiter-mismatch errors, and a smaller grammar.
+* **Collections are one concept**.  A `Dictionary` is just a collection whose elements are keyed — `:` is what says so.  An `Array` is arguably a `Dictionary` implicitly keyed by 0, 1, 2… as a matter of fact `["zero", "one", "two"]` and `[0:"zero", 1:"one", 2:"two"]` are semantically equivalent.
+* **A natural consequence of non-`String` keys**.  JSON's `{}` carries the implicit promise that keys are strings.  Once any value can be a key, that distinction loses its reason to exist.
+
+The only price is `[:]`, the empty `Dictionary`, since `[]` is taken by the empty `Array`.  A fair trade for a whole class of brackets.
 
 ## Implementations
 
@@ -78,7 +99,7 @@ Below is a table of a few notable serialization formats and capabilities.
 
 ## Examples
 
-Below is an exmaple of data encoded in SION.
+Below is an example of data encoded in SION.
 
 ```swift
 [
@@ -105,7 +126,7 @@ Below is an exmaple of data encoded in SION.
     ],
     "double": 0x1.518f5c28f5c29p+5, // double in hex
     "ext": .Ext("1NTU"),            // 0xd4,0xd4,0xd4
-    "int": -42,                     // int in hex
+    "int": -42,                     // Int in decimal
     "nil": nil,
     "string": "漢字、カタカナ、ひらがなの入ったstring😇",
     "url": "https://github.com/dankogai/"
@@ -116,6 +137,7 @@ As you notice,
 
 * comments are allowed - `//` up to newline.
 * non-`String` keys are allowed.  Any data conforming to SION can be a {Dictionary,Map,Object} key.
+* no `{}` in sight.  The whole document is a `Dictionary`, delimited by `[` and `]` like everything else.
 
 And below is an example of JSON-compatible SION…
 
@@ -153,7 +175,7 @@ And below is an example of JSON-compatible SION…
 ```javascript
 {
     "array" : [
-        nil,
+        null,
         true,
         1,
         1.0,
@@ -173,8 +195,10 @@ And below is an example of JSON-compatible SION…
     },
     "double": 42.195,
     "int": -42,
-    "nil": nil,
+    "nil": null,
     "string": "漢字、カタカナ、ひらがなの入ったstring😇",
     "url": "https://github.com/dankogai/"
 }
 ```
+
+Note the `{}`s are back, along with the comments gone.
